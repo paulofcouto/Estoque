@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using MongoDB.Driver;
 using ControleEstoque.Interfaces;
 using ControleEstoque.Models;
@@ -18,9 +17,6 @@ namespace ControleEstoque.Services
 
             _usuario = database.GetCollection<Usuario>(settings.CollectionName);
         }
-
-        public List<Usuario> Get() =>
-            _usuario.Find(usuario => true).ToList();
 
         public Usuario Get(ObjectId id) =>
             _usuario.Find<Usuario>(usuario => usuario._id == id).FirstOrDefault();

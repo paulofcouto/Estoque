@@ -1,18 +1,15 @@
-﻿namespace ControleEstoque.Interfaces
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+
+namespace ControleEstoque.Interfaces
 {
-    interface IGenericCRUD 
+    public interface IGenericCRUD <TEntity> where TEntity : class
     {
-        public class Get<T>
-        {
-        }
-        public class Insert<T>
-        {
-        }
-        public class Update<T>
-        {
-        }
-        public class Delete<T>
-        {
-        }
+        IQueryable<TEntity> Get();
+        TEntity GetToIds(params object[] objectId);
+        void Insert(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(params object[] objectId);
     }
 }
