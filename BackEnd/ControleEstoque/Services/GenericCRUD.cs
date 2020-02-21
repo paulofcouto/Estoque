@@ -11,7 +11,7 @@ namespace ControleEstoque.Services
 
         public IQueryable<T> Get()
         {
-            return _entity.
+            return _entity
         }
 
         public T GetToIds(params object[] objectId)
