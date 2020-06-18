@@ -1,36 +1,49 @@
 ﻿using ControleEstoque.Interfaces;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ControleEstoque.Services
 {
     public class GenericCRUD<TEntity> : IGenericCRUD<T>
     {
-        private TEntity _entity;
+        protected readonly IMongoCollection<T> _collection;
 
-
-        public IQueryable<T> Get()
+        public IEnumerable<T> GetAll()
         {
-            return _entity
+            return _collection.Find<T>(new BsonDocument()).ToEnumerable();
         }
 
-        public T GetToIds(params object[] objectId)
+        public T GetById(ObjectId id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<T>.Filter.Eq("id", id);
+            return _collection.Find<T>(filter).FirstOrDefault();
         }
 
-        public void Insert(T entity)
+        public void Delete(ObjectId id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<T>.Filter.Eq("id", id);
+            _collection.DeleteOne(filter);
         }
 
-        public void Update(T entity)
+        public void Insert(T obj)
         {
-            throw new NotImplementedException();
+            _collection.InsertOne(obj);
         }
-        public void Delete(params object[] objectId)
+
+        /// <summary>
+        /// Este metódo deleta todos os valores de objeto 'T' e substitui por todos os valores contidos no 'obj'
+        /// </summary>
+        /// <param name="id">id do objeto a ser 'deletado'</param>
+        /// <param name="obj">objeto que irá substitur o objeto existente</param>
+        public void ReplaceOne(ObjectId id, T obj)
         {
-            _entity.Delete(objectId);
+            var filter = new FilterDefinitionBuilder<T>().Eq("id", id);
+            _collection.ReplaceOne(filter, obj);
         }
     }
+
+    public class T {}
 }

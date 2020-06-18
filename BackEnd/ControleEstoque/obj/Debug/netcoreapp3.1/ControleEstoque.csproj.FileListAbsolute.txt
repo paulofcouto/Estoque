@@ -30,3 +30,8 @@ F:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEsto
 F:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.csproj.CopyComplete
 F:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.dll
 F:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.pdb
+Z:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.csproj.CoreCompileInputs.cache
+Z:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.MvcApplicationPartsAssemblyInfo.cache
+Z:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.AssemblyInfoInputs.cache
+Z:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.AssemblyInfo.cs
+Z:\Projetos\Estoque\BackEnd\ControleEstoque\obj\Debug\netcoreapp3.1\ControleEstoque.csprojAssemblyReference.cache

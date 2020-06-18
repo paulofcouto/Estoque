@@ -18,22 +18,7 @@ namespace ControleEstoque.Services
             _usuario = database.GetCollection<Usuario>(settings.CollectionName);
         }
 
-        public Usuario Get(ObjectId id) =>
-            _usuario.Find<Usuario>(usuario => usuario._id == id).FirstOrDefault();
-
-        public Usuario Create(Usuario usuario)
-        {
-            _usuario.InsertOne(usuario);
-            return usuario;
-        }
-
-        public void Update(ObjectId id, Usuario usuarioIn) =>
-            _usuario.ReplaceOne(usuario => usuario._id == id, usuarioIn);
-
-        public void Remove(Usuario usuarioIn) =>
-            _usuario.DeleteOne(usuario => usuario._id == usuarioIn._id);
-
-        public void Remove(ObjectId id) =>
-            _usuario.DeleteOne(usuario => usuario._id == id);
     }
+
+    public class GenericCRUD{}
 }

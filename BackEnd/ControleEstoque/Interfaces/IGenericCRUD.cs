@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using MongoDB.Bson;
+using System.Collections.Generic;
 
 namespace ControleEstoque.Interfaces
 {
-    public interface IGenericCRUD <TEntity> where TEntity : class
+    public interface IGenericCRUD<T> where T : class
     {
-        IQueryable<TEntity> Get();
-        TEntity GetToIds(params object[] objectId);
-        void Insert(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(params object[] objectId);
+        IEnumerable<T> GetAll();
+        T GetById(ObjectId id);
+        void Delete(ObjectId id);
+        void Insert(T obj);
+        void ReplaceOne(ObjectId id, T obj);
     }
 }
